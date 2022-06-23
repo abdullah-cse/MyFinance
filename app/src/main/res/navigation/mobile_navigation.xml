@@ -18,6 +18,11 @@
         tools:layout="@layout/fragment_gallery" />
 
     <fragment
+        android:id="@+id/nav_transaction"
+        android:name="bd.com.abdullah.myfinance.ui.transaction.TransactionFragment"
+        android:label="@string/menu_transaction"
+        tools:layout="@layout/fragment_transaction" />
+    <fragment
         android:id="@+id/nav_slideshow"
         android:name="bd.com.abdullah.myfinance.ui.slideshow.SlideshowFragment"
         android:label="@string/menu_slideshow"
