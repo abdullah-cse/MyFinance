@@ -16,14 +16,14 @@ public class TransactionFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        TransactionViewModel transactionViewModel =
-                new ViewModelProvider(this).get(TransactionViewModel.class);
+        //TransactionViewModel transactionViewModel =
+        //       new ViewModelProvider(this).get(TransactionViewModel.class);
 
         binding = FragmentTransactionBinding.inflate(inflater, container, false);
         View root = binding.getRoot();
 
-        final TextView textView = binding.textTransaction;
-        transactionViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
+        //final TextView textView = binding.textTransaction;
+        //transactionViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
         return root;
     }
 
