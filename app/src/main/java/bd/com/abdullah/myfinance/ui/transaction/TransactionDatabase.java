@@ -11,7 +11,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase;
 
 @Database(entities = Transaction.class, version = 1)
 public abstract class TransactionDatabase extends RoomDatabase {
-    private static TransactionDatabase instance;
+    public static TransactionDatabase instance;
 
     public abstract TransactionDao transactionDao();
 
@@ -20,6 +20,7 @@ public abstract class TransactionDatabase extends RoomDatabase {
             instance= Room.databaseBuilder(context.getApplicationContext(),
                     TransactionDatabase.class,"transaction_database")
                     .fallbackToDestructiveMigration()
+                    .allowMainThreadQueries()
                     .addCallback(roomCallback)  //Optional, To prepopulate Dummy Data
                     .build();
         }
@@ -44,8 +45,10 @@ public abstract class TransactionDatabase extends RoomDatabase {
         protected Void doInBackground(Void... voids) {
             transactionDao.insert(new Transaction("Manir",5000,"26-06-2022",25000,"Debt"));
             transactionDao.insert(new Transaction("Liton",1500,"23-06-2022",25000,"Donation"));
+            transactionDao.insert(new Transaction("বই কেনা",750,"26-06-2022",20000,"Reading"));
             return null;
         }
     }
+
     //Pre-populate some DummyData Ends
 }

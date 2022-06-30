@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:padding="15dp"
+    tools:context=".ui.transaction.AddTransactionFragment">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="New Transaction"
+        android:textAppearance="@style/TextAppearance.AppCompat.Headline">
+    </TextView>
+    <EditText
+        android:id="@+id/editTextTransactionTitle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Transaction Title"
+        android:inputType="text">
+    </EditText>
+
+    <EditText
+        android:id="@+id/editTextTransactionAmount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Transaction Amount"
+        android:inputType="text">
+    </EditText>
+
+    <EditText
+        android:id="@+id/editTextTransactionDate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Transaction Date"
+        android:inputType="text"
+        >
+    </EditText>
+
+    <EditText
+        android:id="@+id/editTextTransactionAccount"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Transaction Account"
+        android:inputType="text">
+    </EditText>
+
+    <EditText
+        android:id="@+id/editTextTransactionCategory"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/editTextTransactionCategory"
+        android:inputType="text">
+    </EditText>
+
+    <Button
+        android:id="@+id/save_transaction"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:text="@string/save_transaction">
+
+    </Button>
+
+
+</LinearLayout>

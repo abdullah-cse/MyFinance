@@ -26,8 +26,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         setSupportActionBar(binding.appBarMain.toolbar);
-        binding.appBarMain.fab.setOnClickListener(view -> Snackbar.make(view, "আপনার মতো করে বদলে নিন", Snackbar.LENGTH_LONG)
-                .setAction("Action", null).show());
+       // binding.appBarMain.fab.setOnClickListener(view -> Snackbar.make(view, "আপনার মতো করে বদলে নিন", Snackbar.LENGTH_LONG)
+        //        .setAction("Action", null).show());
         DrawerLayout drawer = binding.drawerLayout;
         NavigationView navigationView = binding.navView;
         // Passing each menu ID as a set of Ids because each

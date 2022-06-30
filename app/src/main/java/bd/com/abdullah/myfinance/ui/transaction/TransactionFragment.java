@@ -2,19 +2,19 @@ package bd.com.abdullah.myfinance.ui.transaction;
 
 import android.os.Bundle;
 
+import androidx.fragment.app.FragmentTransaction;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.List;
-
 import bd.com.abdullah.myfinance.R;
 import bd.com.abdullah.myfinance.databinding.FragmentTransactionBinding;
 
@@ -22,6 +22,7 @@ import bd.com.abdullah.myfinance.databinding.FragmentTransactionBinding;
 public class TransactionFragment extends Fragment {
 
     private FragmentTransactionBinding binding;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -42,6 +43,18 @@ public class TransactionFragment extends Fragment {
                     }
                 }
         );
+        FloatingActionButton buttonAddTransaction=view.findViewById(R.id.add_transaction_fab);
+        buttonAddTransaction.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Fragment addTransactionFragment=new AddTransactionFragment();
+                assert getFragmentManager() != null;
+                FragmentTransaction fragmentTransaction= getFragmentManager().beginTransaction();
+                fragmentTransaction.replace(R.id.nav_host_fragment_content_main,addTransactionFragment);
+                fragmentTransaction.addToBackStack(null);
+                fragmentTransaction.commit();
+            }
+        });
         return view;
     }
 

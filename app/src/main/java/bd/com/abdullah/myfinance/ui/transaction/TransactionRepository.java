@@ -34,6 +34,7 @@ public class TransactionRepository {
     public LiveData<List<Transaction>>getAllTransaction(){
         return allTransaction;
     }
+
     //Insert Method
     private static class InsertTransactionAsyncTask extends AsyncTask<Transaction,Void,Void>{
         private TransactionDao transactionDao;
