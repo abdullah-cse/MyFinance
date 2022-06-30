@@ -7,11 +7,13 @@ import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.ItemTouchHelper;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Toast;
 
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import java.util.List;
@@ -55,6 +57,22 @@ public class TransactionFragment extends Fragment {
                 fragmentTransaction.commit();
             }
         });
+
+        //Swipe to Delete Function Starts
+        new ItemTouchHelper(new ItemTouchHelper.SimpleCallback(0,ItemTouchHelper.LEFT) {
+            @Override
+            public boolean onMove(@NonNull RecyclerView recyclerView, @NonNull RecyclerView.ViewHolder viewHolder, @NonNull RecyclerView.ViewHolder target) {
+                return false;
+            }
+
+            @Override
+            public void onSwiped(@NonNull RecyclerView.ViewHolder viewHolder, int direction) {
+                transactionViewModel.delete(adapter.getTransactionAt(viewHolder.getAdapterPosition()));
+                Toast.makeText(getActivity(),"Transaction Deleted",Toast.LENGTH_LONG).show();
+            }
+        }).attachToRecyclerView(recyclerView);
+        //Swipe to Delete Function Ends
+
         return view;
     }
 

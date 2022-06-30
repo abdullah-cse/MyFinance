@@ -43,6 +43,10 @@ public class TransactionAdapter extends RecyclerView.Adapter<TransactionAdapter.
         this.transactions=transactions;
         notifyDataSetChanged();
     }
+    //To Delete Left Swapping
+    public Transaction getTransactionAt(int position){
+        return transactions.get(position);
+    }
 
     class TransactionHolder extends RecyclerView.ViewHolder{
         private TextView textViewTitle;
