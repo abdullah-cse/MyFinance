@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="10dp">
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="8dp">
+
+        <TextView
+            android:id="@+id/textViewTransactionTitle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Iam Title"
+            android:textAppearance="@style/TextAppearance.AppCompat.Headline">
+        </TextView>
+
+        <ImageView
+            android:id="@+id/imageViewDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/textViewTransactionTitle"
+            android:layout_marginTop="5dp"
+            app:srcCompat="@drawable/ic_baseline_date_24"
+            />
+
+        <TextView
+            android:id="@+id/textViewTransactionAccount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewTransactionTitle"
+            android:layout_marginStart="33dp"
+            android:layout_marginTop="1dp"
+            android:layout_toEndOf="@+id/textViewTransactionDate"
+            android:text="Salary"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium">
+        </TextView>
+
+        <TextView
+            android:id="@+id/textViewTransactionDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/textViewTransactionTitle"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:layout_toEndOf="@+id/imageViewDate"
+            android:text="25/06/2022"
+            android:textAppearance="@style/TextAppearance.AppCompat.Small">
+        </TextView>
+
+        <TextView
+            android:id="@+id/textViewTransactionAmount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="11dp"
+            android:text="5000"
+            android:textAppearance="@style/TextAppearance.AppCompat.Large">
+        </TextView>
+
+        <TextView
+            android:id="@+id/textViewTransactionCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="-151dp"
+            android:layout_marginEnd="11dp"
+            android:layout_toStartOf="@id/textViewTransactionAmount"
+            android:text="DebtReturn"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium">
+        </TextView>
+    </RelativeLayout>
+
+
+</androidx.cardview.widget.CardView>

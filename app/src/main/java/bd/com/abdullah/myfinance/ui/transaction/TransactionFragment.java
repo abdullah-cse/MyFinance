@@ -1,14 +1,23 @@
 package bd.com.abdullah.myfinance.ui.transaction;
 
 import android.os.Bundle;
+
+import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
+
+import java.util.List;
+
+import bd.com.abdullah.myfinance.R;
 import bd.com.abdullah.myfinance.databinding.FragmentTransactionBinding;
+
 
 public class TransactionFragment extends Fragment {
 
@@ -16,15 +25,24 @@ public class TransactionFragment extends Fragment {
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
-        //TransactionViewModel transactionViewModel =
-        //       new ViewModelProvider(this).get(TransactionViewModel.class);
-
         binding = FragmentTransactionBinding.inflate(inflater, container, false);
-        View root = binding.getRoot();
+        View view = binding.getRoot();
 
-        //final TextView textView = binding.textTransaction;
-        //transactionViewModel.getText().observe(getViewLifecycleOwner(), textView::setText);
-        return root;
+        RecyclerView recyclerView = view.findViewById(R.id.recycler_view);
+        recyclerView.setLayoutManager(new LinearLayoutManager(getContext()));
+        recyclerView.setHasFixedSize(true);
+        final TransactionAdapter adapter = new TransactionAdapter();
+        recyclerView.setAdapter(adapter);
+
+        TransactionViewModel transactionViewModel = new ViewModelProvider(this).get(TransactionViewModel.class);
+        transactionViewModel.getAllTransaction().observe(getViewLifecycleOwner(), new Observer<List<Transaction>>() {
+                    @Override
+                    public void onChanged(List<Transaction> transactions) {
+                        adapter.setTransactions(transactions);
+                    }
+                }
+        );
+        return view;
     }
 
     @Override
@@ -32,5 +50,4 @@ public class TransactionFragment extends Fragment {
         super.onDestroyView();
         binding = null;
     }
-
 }
